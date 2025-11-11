@@ -19,5 +19,3 @@ spec:
         args: ["start"]
         ports:
         - containerPort: 3000
-
-
