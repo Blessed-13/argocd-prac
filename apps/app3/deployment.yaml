@@ -15,3 +15,7 @@ spec:
       containers:
       - name: app3
         image: blessed13/node-app:latest
+        command: ["npm"]
+        args: ["start"]
+        port:
+        - containerPort: 3000
