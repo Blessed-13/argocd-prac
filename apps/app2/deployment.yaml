@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: app2
+  labels:
+    app: app2
 spec:
   replicas: 1
   selector:
@@ -12,10 +14,33 @@ spec:
       labels:
         app: app2
     spec:
+      
+      imagePullSecrets:
+        - name: ecr-reg-cred
+
       containers:
-      - name: app2
-        image: blessed13/node-app:latest
-        command: ["npm"]
-        args: ["start"]
-        ports:
-        - containerPort: 3000
+        - name: app2
+          image: 334732393988.dkr.ecr.ap-south-1.amazonaws.com/super-mario-dev:latest
+          imagePullPolicy: Always     
+          ports:
+            - containerPort: 8080     
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "250m"
+              memory: "256Mi"
+          
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 20

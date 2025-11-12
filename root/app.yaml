@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/Blessed-13/argocd-microservice.git
+    repoURL: https://github.com/Blessed-13/argocd-prac.git
     targetRevision: main
     path: apps/app1
   destination:
@@ -25,7 +25,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/Blessed-13/argocd-microservice.git
+    repoURL: https://github.com/Blessed-13/argocd-prac.git
     targetRevision: main
     path: apps/app2
   destination:
@@ -44,7 +44,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/Blessed-13/argocd-microservice.git
+    repoURL: https://github.com/Blessed-13/argocd-prac.git
     targetRevision: main
     path: apps/app3
   destination:
